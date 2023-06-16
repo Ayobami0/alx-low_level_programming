@@ -1,4 +1,5 @@
 	.file	"1-main.c"
+	.intel_syntax noprefix
 	.text
 	.section	.rodata
 .LC0:
@@ -9,19 +10,19 @@
 main:
 .LFB0:
 	.cfi_startproc
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	%edi, -4(%rbp)
-	movq	%rsi, -16(%rbp)
-	leaq	.LC0(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
+	sub	rsp, 16
+	mov	DWORD PTR -4[rbp], edi
+	mov	QWORD PTR -16[rbp], rsi
+	lea	rax, .LC0[rip]
+	mov	rdi, rax
+	mov	eax, 0
 	call	printf@PLT
-	movl	$0, %eax
+	mov	eax, 0
 	leave
 	.cfi_def_cfa 7, 8
 	ret
