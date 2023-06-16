@@ -26,11 +26,8 @@ int main(void)
 					putchar(' ');
 					putchar(k);
 					putchar(l);
-					/* if (i != (STOP - 1) )
-					{
-						putchar(',');
-						putchar(' ');
-					}*/
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
