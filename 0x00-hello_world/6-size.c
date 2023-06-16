@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main - Main entry to the program
- * 
+* main - Main entry to the program
+ *
  * Return: int
 */
-int main(void) 
+int main(void)
 {
 	int charSize = sizeof(char);
 	int intSize = sizeof(int);
@@ -19,5 +19,5 @@ int main(void)
 	printf("Size of a long long int: %i byte(s)\n", longLongIntSize);
 	printf("Size of a float: %i byte(s)\n", floatSize);
 
-  return (0);
+	return (0);
 }
