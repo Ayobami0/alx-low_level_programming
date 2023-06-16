@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S 1-main.c -dumpbase -masm=intel
+gcc -S $CFILE -dumpbase -masm=intel
