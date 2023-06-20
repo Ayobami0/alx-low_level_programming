@@ -6,30 +6,28 @@
 */
 void jack_bauer(void)
 {
-	int i, j, k, l;
+	int i, j, k, l, stop_loop;
 
-	for (i = '0'; i < '0' + 3; i++)
+	stop_loop = 0;
+
+	for (i = '0'; i < '0' + 3 && stop_loop == 0; i++)
 	{
-		if (i == ('0' + 2) && j == ('0' + 3) && k == ('0' + 5) && l == ('0' + 9))
-			break;
-		for (j = '0'; j < '0' + 10; j++)
+		for (j = '0'; j < '0' + 10 && stop_loop == 0; j++)
 		{
-			if (i == ('0' + 2) && j == ('0' + 3) && k == ('0' + 5) && l == ('0' + 9))
-				break;
-			for (k = '0'; k < '0' + 6; k++)
+			for (k = '0'; k < '0' + 6 && stop_loop == 0; k++)
 			{
-				if (i == ('0' + 2) && j == ('0' + 3) && k == ('0' + 5) && l == ('0' + 9))
-					break;
-				for (l = '0'; l < '0' + 10; l++)
+				for (l = '0'; l < '0' + 10 && stop_loop == 0; l++)
 				{
-					if (i == ('0' + 2) && j == ('0' + 3) && k == ('0' + 5) && l == ('0' + 9))
-						break;
 					_putchar(i);
 					_putchar(j);
 					_putchar(':');
 					_putchar(k);
 					_putchar(l);
 					_putchar('\n');
+					if (i == ('0' + 2) && j == ('0' + 3) && k == ('0' + 5) && l == ('0' + 9))
+					{
+						stop_loop = 1;
+					}
 				}
 			}
 		}
