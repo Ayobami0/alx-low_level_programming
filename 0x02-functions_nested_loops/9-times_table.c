@@ -30,7 +30,7 @@ void print_int_as_char(int n)
 {
 	char buffer[5];
 	int index, i;
-	
+
 	index = 0;
 
 	if (n < 58 && n > 47)
@@ -39,8 +39,7 @@ void print_int_as_char(int n)
 		return;
 	}
 
-	do
-	{
+	do {
 		buffer[index++] = '0' + (n % 10);
 		n = n / 10;
 	} while (n > 0);
@@ -48,7 +47,7 @@ void print_int_as_char(int n)
 	for (i = 0; i < index / 2; i++)
 	{
 		char temp = buffer[i];
-		
+
 		buffer[i] = buffer[index - i - 1];
 		buffer[index - i - 1] = temp;
 	}
