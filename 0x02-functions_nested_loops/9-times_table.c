@@ -26,9 +26,14 @@ void times_table(void)
 	}
 }
 
+/**
+* print_int_as_char - write number to stdoutput
+* as string.
+* @n: the number to print
+*/
 void print_int_as_char(int n)
 {
-	char buffer[5];
+	char buffer[20];
 	int index, i;
 
 	index = 0;
