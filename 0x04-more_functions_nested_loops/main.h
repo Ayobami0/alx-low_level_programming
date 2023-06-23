@@ -10,4 +10,5 @@
 	void print_number_as_char(int n);
 	void print_line(int n);
 	void print_diagonal(int n);
+	void print_square(int n);
 #endif
