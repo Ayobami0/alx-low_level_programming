@@ -19,7 +19,7 @@ int main(void)
 		{
 			for (k = START; k < STOP; k++)
 			{
-				for (l = j+1; l < STOP; l++)
+				for (l = 1+1; l < STOP; l++)
 				{
 					putchar(i);
 					putchar(j);
