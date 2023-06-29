@@ -12,8 +12,8 @@ char *cap_string(char *s)
 
 	for (i = 0; s[i] != '\0' ; i++)
 	{
-		if (s[i] == '\t')
-			s[i] = ' ';
+/* if (s[i] == '\t') */
+/* s[i] = ' '; */
 		if (
 			(s[i] > 96 && s[i] < 123)
 			|| (s[i] > 64 && s[i] < 91)
