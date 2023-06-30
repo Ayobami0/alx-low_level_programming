@@ -13,19 +13,18 @@ char *rot13(char *s)
 	 * alpha_upper and alpha_lower represents the letters in
 	 * the alphabet with their position swapped 13 places
 	*/
-	char alpha_upper[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char alpha_lower[] = "nopqrstuvwxyzabcdefghijklm";
+	char alpha[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; s[i] != '\0'; i++)
-		if (s[i] < 91 && s[i] > 64)
+		if ((s[i] < 91 && s[i] > 64) || (s[i] < 123 && s[i] > 96))
 			/*
-			 * This line is to swap the char at position i in s
-			 * with the char at pos i in alpha_upper.
+			 * This line swaps the char at position i in s
+			 * with the char at pos i in alpha.
+			 *
+			 * the calclation (alpha[s[i] - 65 - ((s[i] / 91) * 6)])
+			 * find the position of char s[i] and get the char at that
+			 * position in alpha
 			 */
-			s[i] = alpha_upper[s[i] - 65];
-		else if (s[i] < 123 && s[i] > 96)
-			s[i] = alpha_lower[s[i] - 97];
-		else
-			s[i] = s[i];
+			s[i] = alpha[s[i] - 65 - ((s[i] / 91) * 6)];
 	return (s);
 }
