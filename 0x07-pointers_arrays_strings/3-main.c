@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-    char *s =  "abcdefgh";
-    char *f = "abXXcdeZZh";
+    char *s =  "First, solve the problem. Then, write the code.";
+    char *f = "[]{}()";
     unsigned int n;
 
     n = _strspn(s, f);
