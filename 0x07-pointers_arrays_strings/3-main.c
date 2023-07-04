@@ -8,11 +8,9 @@
  */
 int main(void)
 {
-    char *s =  "First, solve the problem. Then, write the code.";
-    char *f = "[]{}()";
-    unsigned int n;
 
-    n = _strspn(s, f);
-    printf("%u\n", n);
+    printf("%u\n", (int) _strspn("First, solve the problem. Then, write the code.", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+    printf("%u\n", _strspn("abcdef", ""));
+    printf("%u\n", _strspn("First, solve the problem. Then, write the code.", "[]{}()"));
     return (0);
 }
