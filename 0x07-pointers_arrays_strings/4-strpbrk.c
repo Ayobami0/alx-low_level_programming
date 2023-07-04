@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * _strpbrk - gets the length of a prefix substring
@@ -19,12 +20,12 @@ char *_strpbrk(char *s, char *accept)
 	{
 		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (accept[i] == s[j])
+			if (accept[j] == s[i])
 			{
-				p = s + i + 1;
+				p = s + i;
 				return (p);
 			}
 		}
 	}
-	return (p);
+	return (0);
 }
