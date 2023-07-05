@@ -2,7 +2,7 @@
 
 /**
  * _pow_recursion - computes the value of @x raised
- * to the power of @y recursively 
+ * to the power of @y recursively
  * and return the value
  * @x: number
  * @y: index (power)
