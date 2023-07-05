@@ -1,16 +1,20 @@
 #include "main.h"
 
 /**
- * _strlen_recursion - counts the length of a string
- * recursively and return the value
- * @s: string to count
+ * _pow_recursion - computes the value of @x raised
+ * to the power of @y recursively 
+ * and return the value
+ * @x: number
+ * @y: index (power)
  *
- * Return: string count
+ * Return: x raised to power y
 */
-int _strlen_recursion(char *s)
+int _pow_recursion(int x, int y)
 {
-	if (*s == '\0')
-		return (0);
-	return (1 + _strlen_recursion(s + 1));
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	return (x * _pow_recursion(x, y - 1));
 }
 
