@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 
 int _atoi(char *s)
@@ -9,7 +8,6 @@ int _atoi(char *s)
 	num = 0;
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		printf("%c", s[i]);
 		if (s[i] > 47 && s[i] < 58)
 		{
 			num += (s[i] - 48);
