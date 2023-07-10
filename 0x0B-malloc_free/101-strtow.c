@@ -19,7 +19,7 @@ char **strtow(char *str)
 	int i, j, k, start_count, letter_count;
 	char **arr;
 
-	if (str[0] == 0 || str == NULL || str[0] == ' ')
+	if (str[0] == 0 || str == NULL || count_words(str) == 0)
 		return (NULL);
 
 	start_count = letter_count = 0;
@@ -39,7 +39,6 @@ char **strtow(char *str)
 		}
 		else if (str[i] == ' ' && start_count != 0)
 		{
-			/*printf("total letters in arr[%d]: %d\n", j, letter_count);*/
 			arr[j] = malloc(sizeof(char) * letter_count);
 			if (arr[j] == NULL)
 				return (NULL);
