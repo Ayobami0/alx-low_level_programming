@@ -30,26 +30,26 @@ char **strtow(char *str)
 	if (arr == NULL)
 		return (NULL);
 
-	for (i = j = 0, start_count = 0; str[i] != '\0'; i++)
+	for (i = j = start_count = 0;; i++)
 	{
-		if (str[i] != ' ')
+		if (str[i] != ' ' && str[i] != '\0')
 		{
 			letter_count++;
 			start_count = 1;
 		}
-		else if (str[i] == ' ' && start_count != 0)
+		else if ((str[i] == ' ' || str[i] == '\0') && start_count != 0)
 		{
 			arr[j] = malloc(sizeof(char) * letter_count);
 			if (arr[j] == NULL)
 				return (NULL);
 			for (k = 0; k < letter_count; k++)
-			{
 				arr[j][k] = *(str + i - (letter_count - k));
-			}
 			j++;
 			start_count = 0;
 			letter_count = 0;
 		}
+		if (str[i] == '\0')
+			break;
 	}
 	return (arr);
 }
@@ -78,6 +78,5 @@ int count_words(char *s)
 		else if (s[i] == ' ')
 			start_count = 0;
 	}
-	/*printf("total words: %d\n", total_words);*/
 	return (total_words);
 }
