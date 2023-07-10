@@ -1,22 +1,21 @@
 #include "main.h"
+#include <string.h>
 #include <stdlib.h>
 
 /**
-*	create_array - creates an array of chars
-*	and initializes it with a specific char.
-*	@size: size of array
-*	@c: char to initialize the array with
+*	_strdup - returns a pointer to a newly
+*	allocated space in memory, which contains
+*	a copy of the string given as a parameter.
+*	@str: string to copy to new array
 *
-*	Return: the initialized array
+*	Return: the address to the new string
 */
-char *create_array(unsigned int size, char c)
+char *_strdup(char *str)
 {
 	char *arr;
-	unsigned int i;
+	unsigned int i, size;
 
-	if (size == 0)
-		return (NULL);
-
+	size = strlen(str);
 	arr = malloc(size);
 
 	if (arr == NULL)
@@ -24,8 +23,7 @@ char *create_array(unsigned int size, char c)
 
 	for (i = 0; i < size; i++)
 	{
-		arr[i] = c;
+		arr[i] = str[i];
 	}
-
 	return (arr);
 }
