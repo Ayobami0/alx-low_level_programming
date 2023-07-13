@@ -12,13 +12,10 @@
 void *malloc_checked(unsigned int b)
 {
 	void *array;
-	int *FAILED_RETURN, failed_return;
 
-	failed_return = 98;
-	FAILED_RETURN = &failed_return;
 	array = malloc(b);
 
 	if (array == NULL)
-		return (FAILED_RETURN);
+		exit(98);
 	return (array);
 }
