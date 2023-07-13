@@ -19,7 +19,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	arr_len = nmemb * sizeof(int);
 	arr = malloc(arr_len);
 
-	if (arr == NULL)
+	if (arr == NULL || nmemb == 0 || size == 0)
 		return (NULL);
 
 	for (i = 0; i < nmemb; i++)
