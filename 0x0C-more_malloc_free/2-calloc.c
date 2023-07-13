@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -13,16 +14,18 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	int *arr;
-	int i, arr_len;
+	unsigned int i, arr_len;
 
-	arr_len = size * nmemb;
+	arr_len = nmemb * sizeof(int);
 	arr = malloc(arr_len);
 
 	if (arr == NULL)
 		return (NULL);
 
-	for (i = 0; i < arr_len; i++)
+	for (i = 0; i < nmemb; i++)
 		arr[i] = 0;
+
+	arr = realloc(arr, size);
 
 	return (arr);
 }
