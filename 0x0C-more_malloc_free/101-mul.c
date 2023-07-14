@@ -84,6 +84,13 @@ void mul(char *n1, char *n2)
 	n1 = rev_string(n1);
 	n2 = rev_string(n2);
 
+	if (*n1 == '0' || *n2 == '0')
+	{
+		print_str("0");
+		free(inter_str);
+		return;
+	}
+
 	for (i = 0; i < len_n1; i++)
 		for (j = 0; j < len_n2; j++)
 			inter_str[i + j] += (n1[i] - '0') * (n2[j] - '0');
