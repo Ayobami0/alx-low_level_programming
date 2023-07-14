@@ -95,7 +95,7 @@ void mul(char *n1, char *n2)
 		for (j = 0; j < len_n2; j++)
 			intermediate_num[i + j] += (n1[i] - '0') * (n2[j] - '0');
 
-	for (i = carry = 0; i < len_n1 + len_n2 || carry > 0; i++)
+	for (i = carry = 0; i < len_n1 + len_n2; i++)
 	{
 		sum = intermediate_num[i] + carry;
 		result_str[i] = (sum % 10) + '0';
@@ -103,7 +103,7 @@ void mul(char *n1, char *n2)
 	}
 
 	result_str = strip_zeros(rev_string(result_str));
-	result_str[i]= '\0';
+	result_str[i] = '\0';
 	print_str(result_str);
 	free(intermediate_num);
 }
