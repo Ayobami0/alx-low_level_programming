@@ -18,9 +18,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *arr;
 	int arr_len, i;
 
-	arr_len = n < strlen(s2 == NULL? "" : s2)
-		? strlen(s1 == NULL? "" : s1) + n
-		: strlen(s1 == NULL ? "" : s1) + strlen(s2 == NULL? "" : s2);
+	arr_len = n < strlen(s2 == NULL ? "" : s2)
+		? strlen(s1 == NULL ? "" : s1) + n
+		: strlen(s1 == NULL ? "" : s1) + strlen(s2 == NULL ? "" : s2);
 	arr = malloc(arr_len + 1);
 
 	if (arr == NULL)
