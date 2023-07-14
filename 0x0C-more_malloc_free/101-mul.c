@@ -9,6 +9,13 @@ void mul(char *n1, char *n2);
 int check_invalid_numbers(char *s);
 char *strip_zeros(char *s);
 
+/**
+ * main - Entry point of the program.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of strings containing the command-line arguments.
+ *
+ * Return: 0 on success, 98 on error.
+*/
 int main(int argc, char *argv[])
 {
 	if (argc != 3)
@@ -27,6 +34,12 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
+/**
+ * check_invalid_numbers - Checks if a string contains only valid numbers.
+ * @s: The string to be checked.
+ *
+ * Return: 0 if the string contains only valid numbers, 1 otherwise.
+*/
 int check_invalid_numbers(char *s)
 {
 	int i;
@@ -36,7 +49,10 @@ int check_invalid_numbers(char *s)
 			return (1);
 	return (0);
 }
-
+/**
+ * print_str - Prints a string to stdout.
+ * @str: The string to be printed.
+ */
 void print_str(char *str)
 {
 	int i;
@@ -47,7 +63,11 @@ void print_str(char *str)
 	}
 	_putchar('\n');
 }
-
+/**
+ * mul - Multiplies two numbers.
+ * @n1: The first number as a string.
+ * @n2: The second number as a string.
+*/
 void mul(char *n1, char *n2)
 {
 	int *inter_str, carry, sum,
@@ -79,7 +99,12 @@ void mul(char *n1, char *n2)
 	print_str(strip_zeros(rev_string(result_str)));
 	free(inter_str);
 }
-
+/**
+ * rev_string - Reverses a string.
+ * @c: The string to be reversed.
+ *
+ * Return: A pointer to the reversed string.
+ */
 char *rev_string(char *c)
 {
 	unsigned int i;
@@ -100,6 +125,12 @@ char *rev_string(char *c)
 	}
 	return (c);
 }
+/**
+ * strip_zeros - Strips leading zeros from a string.
+ * @s: The string to be processed.
+ *
+ * Return: A pointer to the string after stripping leading zeros.
+ */
 char *strip_zeros(char *s)
 {
 	int i;
