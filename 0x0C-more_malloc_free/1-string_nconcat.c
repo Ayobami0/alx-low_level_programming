@@ -18,7 +18,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *arr;
 	int arr_len, i;
 
-	arr_len = n < strlen(s2) ? strlen(s1) + n : strlen(s1) + strlen(s2);
+	if (s1 == NULL)
+		s1[0] = '\0';
+	if (s2 == NULL)
+		s2[0] = '\0';
+
+	arr_len = n < strlen(s2)
+		? strlen(s1) + n
+		: strlen(s1) + strlen(s2);
 	arr = malloc(arr_len + 1);
 
 	if (arr == NULL)
