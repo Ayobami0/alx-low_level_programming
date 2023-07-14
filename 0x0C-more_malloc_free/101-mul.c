@@ -70,7 +70,7 @@ void print_str(char *str)
 */
 void mul(char *n1, char *n2)
 {
-	int *inter_str, carry, sum,
+	int *intermediate_num, carry, sum,
 		len_n1, len_n2, i, j;
 	char *result_str;
 
@@ -78,33 +78,34 @@ void mul(char *n1, char *n2)
 	len_n1 = strlen(n1);
 	len_n2 = strlen(n2);
 
-	inter_str = malloc((len_n1 + len_n2) * sizeof(int));
+	intermediate_num = malloc((len_n1 + len_n2) * sizeof(int));
 	result_str = malloc(len_n1 + len_n2);
 
 	n1 = rev_string(n1);
 	n2 = rev_string(n2);
 
-	if (*n1 == '0' || *n2 == '0')
+	if ((strlen(n1) == 1 && *n1 == '0') || (strlen(n2) == 1 && *n2 == '0'))
 	{
 		print_str("0");
-		free(inter_str);
+		free(intermediate_num);
 		return;
 	}
 
 	for (i = 0; i < len_n1; i++)
 		for (j = 0; j < len_n2; j++)
-			inter_str[i + j] += (n1[i] - '0') * (n2[j] - '0');
+			intermediate_num[i + j] += (n1[i] - '0') * (n2[j] - '0');
 
-	for (i = carry = 0; i < len_n2 + len_n1; i++)
+	for (i = carry = 0; i < len_n1 + len_n2; i++)
 	{
-		sum = inter_str[i] + carry;
+		sum = intermediate_num[i] + carry;
 		result_str[i] = (sum % 10) + '0';
 		carry = sum / 10;
 	}
-	result_str[i] = '\0';
+	result_str = strip_zeros(rev_string(result_str));
+	result_str[len_n1 + len_n2] = '\0';
 
-	print_str(strip_zeros(rev_string(result_str)));
-	free(inter_str);
+	print_str(result_str);
+	free(intermediate_num);
 }
 /**
  * rev_string - Reverses a string.
@@ -115,14 +116,11 @@ void mul(char *n1, char *n2)
 char *rev_string(char *c)
 {
 	unsigned int i;
-	char zero = '0';
 	char temp;
 
+
 	if (atoi(c) == 0)
-	{
-		c = &zero;
-		return (c);
-	}
+		return ("0");
 
 	for (i = 0; i < strlen(c) / 2; i++)
 	{
