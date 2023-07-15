@@ -105,6 +105,7 @@ void mul(char *n1, char *n2)
 	result_str = strip_zeros(rev_string(result_str));
 	result_str[i] = '\0';
 	print_str(result_str);
+	free(result_str);
 	free(intermediate_num);
 }
 /**
