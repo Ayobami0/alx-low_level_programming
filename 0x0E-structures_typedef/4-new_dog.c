@@ -21,10 +21,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	len_name = strlen(name);
 	len_owner = strlen(owner);
 
-	copy_name = malloc(len_name+1);
+	copy_name = malloc(len_name + 1);
 	if (copy_name == NULL)
 		return (NULL);
-	copy_owner = malloc(len_owner+1);
+	copy_owner = malloc(len_owner + 1);
 	if (copy_owner == NULL)
 	{
 		free(copy_name);
