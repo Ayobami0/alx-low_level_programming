@@ -3,6 +3,25 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * print_all - Prints a variable number of arguments based on the format.
+ *
+ * @format: A string containing the format specifiers for each argument.
+ * @...: A variable number of arguments to be printed (comma-separated).
+ *
+ * Description: This function takes a format string followed by a variable
+ * number of arguments and prints them according to the specified format.
+ * The format string can contain the following specifiers:
+ *   - 'c': Character specifier. Expects an int argument,
+ *          prints it as a character.
+ *   - 'i': Integer specifier. Expects an int argument,
+ *          prints it as an integer.
+ *   - 'f': Float specifier. Expects a double argument, prints
+ *          it as a floating-point number.
+ *   - 's': String specifier. Expects a char* argument,
+ *          prints it as a string.
+ * If the argument is NULL, it prints "(nil)" instead.
+ */
 void print_all(const char *const format, ...)
 {
 	va_list v_args;
@@ -38,7 +57,7 @@ void print_all(const char *const format, ...)
 		if (i != strlen(format) - 1 && (format[i] == 'i'
 										|| format[i] == 'f'
 										|| format[i] == 's'
-										|| format[i] == 'c' ))
+										|| format[i] == 'c'))
 			printf(", ");
 		i++;
 	}
