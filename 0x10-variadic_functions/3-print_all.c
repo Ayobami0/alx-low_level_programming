@@ -30,7 +30,6 @@ void print_all(const char *const format, ...)
 
 	va_start(v_args, format);
 
-
 	i = 0;
 	while (i < strlen(format))
 	{
@@ -62,7 +61,6 @@ void print_all(const char *const format, ...)
 			printf(", ");
 		i++;
 	}
-
 	printf("\n");
 	va_end(v_args);
 }
