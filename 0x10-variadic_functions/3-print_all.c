@@ -4,7 +4,7 @@
 void print_all(const char *const format, ...)
 {
 	va_list v_args;
-	int i;
+	unsigned int i;
 
 
 	i = 0;
