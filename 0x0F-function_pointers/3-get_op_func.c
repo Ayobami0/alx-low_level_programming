@@ -2,16 +2,22 @@
 #include <stddef.h>
 #include <string.h>
 
+/**
+ * get_op_func - get the function to execute for the operator @s
+ * @s: operator
+ *
+ * Return: NULL if operator is not found
+ */
 int (*get_op_func(char *s))(int, int)
 {
-	op_t ops[] =
-	{
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
-		{NULL, NULL},};
+		{NULL, NULL},
+};
 	int i;
 
 	i = 0;

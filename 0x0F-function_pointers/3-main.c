@@ -3,7 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char* argv[])
+/**
+ * main - main entry to program
+ * @argc: argument count
+ * @argv: command line argument
+ *
+ * Return: 0
+ */
+int main(int argc, char *argv[])
 {
 	int num1, num2;
 	op_t operation;
