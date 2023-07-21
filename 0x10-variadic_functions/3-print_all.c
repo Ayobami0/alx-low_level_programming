@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -31,7 +32,7 @@ void print_all(const char *const format, ...)
 	if (format == NULL)
 	{
 		printf("\n");
-		return;
+		exit(0);
 	}
 	va_start(v_args, format);
 	i = 0;
