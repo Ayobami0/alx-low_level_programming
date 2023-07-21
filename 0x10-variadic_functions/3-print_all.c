@@ -28,8 +28,12 @@ void print_all(const char *const format, ...)
 	unsigned int i;
 	char *str;
 
+	if (format == NULL)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(v_args, format);
-
 	i = 0;
 	while (i < strlen(format))
 	{
