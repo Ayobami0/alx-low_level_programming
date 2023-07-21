@@ -52,7 +52,6 @@ void print_all(const char *const format, ...)
 					printf("%s", str);
 					break;
 				}
-				printf("%c", str[0]);
 				printf("(nil)");
 				break;
 		}
