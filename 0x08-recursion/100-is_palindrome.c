@@ -19,7 +19,7 @@ int is_palindrome_num(char *s, int n)
 
 	if (s[n] != s[len - n - 1])
 		return (0);
-	if (n - len)
+	if (n - len == 0)
 		return (1);
 	return is_palindrome_num(s++, n++);
 }
