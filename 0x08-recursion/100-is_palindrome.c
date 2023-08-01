@@ -13,13 +13,9 @@ int is_palindrome(char *s)
 
 int is_palindrome_num(char *s, int n)
 {
-	int len, i;
-
-	len = strlen(s);
-
-	if (s[n] != s[len - n - 1])
+	if (s[n] != s[strlen(s) - n - 1])
 		return (0);
-	if (n - len == 0)
+	if (n == strlen(s))
 		return (1);
 	return is_palindrome_num(s++, n++);
 }
