@@ -5,10 +5,13 @@
 size_t print_listint(const listint_t *h)
 {
 	size_t i;
+	const listint_t *tmp;
 
-	for(i = 0; h != NULL; i++)
+	tmp = h;
+	for(i = 0; tmp != NULL; i++)
 	{
-		printf("%d\n", h->n);
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 	return (i);
 }

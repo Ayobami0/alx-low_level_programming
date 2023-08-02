@@ -2,15 +2,15 @@
 
 int pop_listint(listint_t **head)
 {
-	listint_t *storage_node;
+	int val_store;
 
-	if (*head == NULL)
+	if (head == NULL)
 		return (0);
 	if ((*head)->next == NULL)
 		return (0);
 
-	storage_node = (*head)->next;
+	val_store = (*head)->n;
 
-	(*head)->next = NULL;
-	return ((*head)->n);
+	*head = (*head)->next;
+	return (val_store);
 }

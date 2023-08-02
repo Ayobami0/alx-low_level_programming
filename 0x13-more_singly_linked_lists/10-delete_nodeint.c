@@ -4,16 +4,20 @@
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int i;
+	listint_t *tmp, *to_remove;
 
-	i = 0;
-	do
+	tmp = *head;
+	for (i = 0; tmp->next != NULL; i++)
 	{
-		if (i == index)
+		if (i == index - 1)
 		{
-			free(*(head));
+			to_remove = tmp->next;
+			tmp->next = tmp->next->next;
+
+			free_listint2(&to_remove);
 			return (1);
 		}
+		tmp = tmp->next;
 	}
-	while ((*head)->next != NULL);
 	return (-1);
 }

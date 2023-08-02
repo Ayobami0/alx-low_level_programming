@@ -3,7 +3,6 @@
 int sum_listint(listint_t *head)
 {
 	listint_t *temp;
-	unsigned int i;
 	int count;
 
 	if (head == NULL || head->next == NULL)
