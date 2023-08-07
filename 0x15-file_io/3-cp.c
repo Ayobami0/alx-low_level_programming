@@ -71,6 +71,7 @@ void cp(char *file_from, char *file_to)
 		if (n_read < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			close(fd_from);
 			exit(99);
 		}
 		if (n_read < BUF_SIZE)
@@ -79,6 +80,7 @@ void cp(char *file_from, char *file_to)
 		if (n_write < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			close(fd_from);
 			exit(99);
 		}
 	} while (n_read != 0);
