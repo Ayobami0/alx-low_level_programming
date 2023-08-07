@@ -62,6 +62,11 @@ void cp(char *file_from, char *file_to)
 
 	if (fd_to < 0)
 	{
+		if (close(fd_from) < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+			exit(100);
+		}
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
@@ -71,16 +76,24 @@ void cp(char *file_from, char *file_to)
 		if (n_read < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			close(fd_from);
+			if (close(fd_from) < 0)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+				exit(100);
+			}
 			exit(99);
 		}
 		if (n_read < BUF_SIZE)
-			buf[n_read + 1] = '\0';
+			buf[n_read] = '\0';
 		n_write = write(fd_to, buf, n_read);
 		if (n_write < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			close(fd_from);
+		if (close(fd_from) < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+			exit(100);
+		}
 			exit(99);
 		}
 	} while (n_read != 0);
