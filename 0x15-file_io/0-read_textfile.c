@@ -15,26 +15,28 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-		ssize_t count;
-		int fd;
-		char buff;
+	size_t count;
+	int fd, n_write;
+	char buff;
 
-		if (filename == NULL)
+	if (filename == NULL)
+		return (0);
+
+	fd = open(filename, O_RDONLY);
+
+	if (fd < 0)
+		return (0);
+
+	n_write = count = 0;
+	while (read(fd, &buff, 1) > 0 && count != letters)
+	{
+		n_write = write(STDOUT_FILENO, &buff, 1);
+		if (n_write < 0)
 			return (0);
-
-		fd = open(filename, O_RDONLY);
-
-		if (fd <= 0)
-			return (0);
-
-		while (read(fd, &buff, 1) > 0 && (int)count != (int)letters)
-		{
-			if (write(STDOUT_FILENO, &buff, 1) <= 0)
-			{
-				return (0);
-			}
-			count++;
-		}
+		else if (n_write == 0)
+			break;
+		count++;
+	}
 
 	return (count);
 }
