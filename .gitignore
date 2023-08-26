@@ -1,3 +1,10 @@
 *.out
 *-main.c
 [a-z]
+*.json
+test*
+vgcore*
+launch*
+copy
+Requi*
+0x15-file_io/elf_header
