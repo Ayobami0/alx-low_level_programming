@@ -112,20 +112,21 @@ void display_elf_header(const char *filename)
 		print_error("Not a valid ELF file");
 
 	printf("ELF Header:\n");
-	printf(" Magic:   ");
+	printf("  Magic:   ");
 	print_ident(header.e_ident);
-	printf(" Class:                             ");
+	printf("  Class:                             ");
 	print_class(header.e_ident[EI_CLASS]);
-	printf(" Data:                              ");
+	printf("  Data:                              ");
 	print_data(header.e_ident[EI_DATA]);
-	printf("Version:                           %d\n", header.e_ident[EI_VERSION]);
-	printf(" OS/ABI:                            ");
+	printf("  Version:                           %d\n",
+		header.e_ident[EI_VERSION]);
+	printf("  OS/ABI:                            ");
 	print_osabi(header.e_ident[EI_OSABI]);
-	printf(" ABI Version:                       %d\n",
+	printf("  ABI Version:                       %d\n",
 		header.e_ident[EI_ABIVERSION]);
-	printf(" Type:                              ");
+	printf("  Type:                              ");
 	print_type(header.e_type);
-	printf(" Entry point address:               0x%lx\n",
+	printf("  Entry point address:               0x%lx\n",
 		(unsigned long)header.e_entry);
 
 	close(fd);
