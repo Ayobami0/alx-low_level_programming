@@ -21,7 +21,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *temp;
 	char *val_cpy, *key_cpy;
 
-	if (ht == NULL || *key == '\0')
+	if (ht == NULL || *key == '\0' || key == NULL)
 		return (0);
 
 	val_cpy = strdup(value);
