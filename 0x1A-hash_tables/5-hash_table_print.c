@@ -15,10 +15,10 @@ void hash_table_print(const hash_table_t *ht)
 		if (ht->array[i] != NULL)
 		{
 			hash_node = ht->array[i];
-			if (i != 0 && !first_printed)
-				printf(", ");
 			while (hash_node != NULL)
 			{
+				if (i != 0 && !first_printed)
+					printf(", ");
 				printf("'%s': '%s'", hash_node->key, hash_node->value);
 				first_printed = 0;
 				hash_node = hash_node->next;
