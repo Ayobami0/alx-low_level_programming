@@ -5,8 +5,7 @@ NAME = school
 
 all: $(NAME)
 
-$(OBJ): $(SRC)
-	$(CC) -c -o $@ $< 
+$(OBJ): %.o : %.c
 
 $(NAME): $(OBJ)
 	$(CC) $^ -o $(NAME)
