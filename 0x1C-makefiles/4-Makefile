@@ -3,6 +3,7 @@ SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c,%.o,$(SRC))
 NAME = school
 RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: $(NAME)
 
@@ -20,3 +21,4 @@ oclean:
 fclean: clean oclean
 
 re: oclean all
+
