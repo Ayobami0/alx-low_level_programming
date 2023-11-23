@@ -1,0 +1,22 @@
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(patsubst %.c,%.o,$(SRC))
+NAME = school
+RM = 0
+
+all: $(NAME)
+
+$(OBJ): %.o : %.c
+
+$(NAME): $(OBJ)
+	$(CC) $^ -o $(NAME)
+
+clean:
+	rm -f *~ school
+
+oclean:
+	rm -f $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
