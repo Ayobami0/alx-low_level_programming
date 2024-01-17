@@ -49,8 +49,7 @@ void print(int *array, size_t start, size_t stop)
 	{
 		printf("%i", array[i]);
 		if (i != (stop))
-			printf(",");
-		printf(" ");
+			printf(", ");
 	}
 	printf("\n");
 }
